@@ -1,5 +1,5 @@
 #!/bin/bash
-# Restart & reload HTTP services.
+# Restart HTTP services.
 
 # Restart MySQL
 /etc/init.d/mysql restart

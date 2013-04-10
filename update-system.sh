@@ -20,4 +20,4 @@ apt-get clean
 rm -rf /etc/nginx/sites-* /etc/php5/fpm/pool.d/www.*
 
 # Clean Lost & Found
-rm -rf /lost+found/ /home/lost+found/ /media/*/lost+found/ /mnt/*/lost+found/
+rm -rf /home/lost+found/ /lost+found/ /media/*/lost+found/ /mnt/*/lost+found/

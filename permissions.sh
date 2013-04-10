@@ -6,25 +6,40 @@ cd /home/
 
 # Loop Through Users
 for user in *; do
-	# Set User Ownership
+	# Set Home Directory Ownership
 	chown -R $user:$user /home/$user/
 
-	# Set User Directory Permissions
+	# Set Home Directory Permissions
 	find /home/$user/ -type d -exec chmod 0750 {} \;
 
-	# Set User File Permissions
+	# Set Home File Permissions
 	find /home/$user/ -type f ! -executable -exec chmod 0640 {} \;
 	
-	# Set User Executable Permissions
+	# Set Home Executable Permissions
 	find /home/$user/ -type f -executable -exec chmod 0750 {} \;
 
-	# Set User Script Permissions
+	# Set Home Script Permissions
 	find /home/$user/ -type f -name *.sh -exec chmod 0750 {} \;
 	
-	# Set User Home Directory Permissions
+	# Set Home Directory Permissions
 	chmod g-w /home/$user/
 
-	# Set User Media Directory Permissions
+	# Set Media Directory Ownership
+	chown -R $user:$user /media/*/$user/
+
+	# Set Media Directory Permissions
+	find /media/*/$user/ -type d -exec chmod 0750 {} \;
+
+	# Set Media File Permissions
+	find /media/*/$user/ -type f ! -executable -exec chmod 0640 {} \;
+	
+	# Set Media Executable Permissions
+	find /media/*/$user/ -type f -executable -exec chmod 0750 {} \;
+
+	# Set Media Script Permissions
+	find /media/*/$user/ -type f -name *.sh -exec chmod 0750 {} \;
+
+	# Set Media Directory Permissions
 	chmod g-w /media/*/$user/
 
 	# Set SSH Directory Permissions
