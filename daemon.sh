@@ -10,7 +10,7 @@ for script in *.sh; do
 	base=$(basename $script)
 
 	# Find File Name
-	filename=${base%.*}
+	scriptname=${base%.*}
 
 	# Ignore Self
 	if [ "$scriptname" == "daemon" ]; then
