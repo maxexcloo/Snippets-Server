@@ -5,32 +5,23 @@
 cd ~/daemon/
 
 # Loop Through Files
-for script in *.sh; do
-	# Find Base Name
-	base=$(basename $script)
-
+for file in *.sh; do
 	# Find File Name
-	scriptname=${base%.*}
+	filename=$(basename $file .sh)
 
 	# Ignore Self
-	if [ "$scriptname" == "daemon" ]; then
-		echo "[$scriptname] Skipped"
-		continue
-	fi
-
-	# Check For Stop File
-	if [ -e $scriptname.stop ]; then
-		echo "[$scriptname] Blocked"
+	if [ "$filename" == "daemon" ]; then
+		echo "[$filename] Skipped"
 		continue
 	fi
 
 	# Check For Screen Session
-	if [ -e /var/run/screen/S-$(whoami)/*.$scriptname ]; then
-		echo "[$scriptname] Running"
+	if [ -e /var/run/screen/S-$(whoami)/*.$filename ]; then
+		echo "[$filename] Running"
 		continue
 	fi
 
 	# Execute Daemon
-	echo "[$scriptname] Started"
-	bash $script
+	echo "[$filename] Started"
+	bash $file
 done
