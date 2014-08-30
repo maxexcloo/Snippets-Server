@@ -1,9 +1,6 @@
 #!/bin/bash
 # Update, upgrade and clean system packages.
 
-# Root Clean
-#rm -rf ~/*; rm -rf ~/.??*; cp /etc/skel/.??* ~; sed -i "s/^umask o=/#umask o=/g" ~/.bashrc
-
 # Update Package Lists
 apt-get update
 
